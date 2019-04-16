@@ -1,0 +1,4 @@
+---
+
+gradle_distribution_url: "https://services.gradle.org/distributions"
+gradle_install_dir: "/opt"

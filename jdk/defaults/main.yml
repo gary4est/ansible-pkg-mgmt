@@ -1,0 +1,6 @@
+---
+
+#upload file to S3 bucket
+s3_distribution_bucket: "https://s3-us-west-2.amazonaws.com/blue_bucket"
+jdk_distribution_url: "{{ s3_distribution_bucket }}/jdk"
+jdk_install_dir: "/opt"

@@ -1,0 +1,16 @@
+---
+
+- name: Download Gradle {{ gradle_version }}
+  get_url:
+    url: "{{ gradle_distribution_url }}/gradle-{{ gradle_version }}-bin.zip"
+    dest: "/tmp/gradle-{{ gradle_version }}-bin.zip"
+    checksum: "sha256:{{ gradle_sha }}"
+  tags: gradle
+
+- name: Unarchive the Gradle {{ gradle_version }} binaries
+  unarchive:
+    copy: no
+    src:  "/tmp/gradle-{{ gradle_version }}-bin.zip"
+    dest: "{{ gradle_install_dir }}"
+    creates: "{{ gradle_install_dir }}/gradle-{{ gradle_version }}"
+  tags: gradle

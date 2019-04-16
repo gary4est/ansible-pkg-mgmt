@@ -1,0 +1,6 @@
+---
+- name: Install git packages
+  yum: name={{ item }} state=present update_cache=yes
+  with_items:
+     - "git"
+     - "bash-completion"

@@ -1,0 +1,16 @@
+---
+# Role tasks
+
+- name: Install Network Packages
+  include_tasks: network.yml
+  when: packages_network | default(False) 
+
+- name: Install Git Packages
+  include_tasks: git.yml
+  when: packages_git | default(False)
+
+- name: Install Mysql Client
+  include_tasks: mysql_client.yml
+  when: packages_mysql_client | default(False)
+
+

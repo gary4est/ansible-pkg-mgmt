@@ -1,0 +1,19 @@
+---
+
+- name: Define jdk file variable
+  set_fact:
+    jdk_file: "{{jdk_version}}{{jdk_extension}}"
+
+- name: Download jdk {{ jdk_file }}
+  get_url:
+    url: "{{ jdk_distribution_url }}/{{ jdk_file }}"
+    dest: "/tmp/{{ jdk_file }}"
+  tags: jdk
+
+- name: Unarchive the jdk {{ jdk_file }}
+  unarchive:
+    copy: no
+    src:  "/tmp/{{ jdk_file }}"
+    dest: "{{ jdk_install_dir }}"
+    creates: "{{ jdk_install_dir }}/{{ jdk_version }}"
+  tags: jdk

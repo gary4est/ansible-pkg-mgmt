@@ -1,0 +1,14 @@
+---
+
+#Include epel tasks
+- include_role:
+    name: epel
+
+- name: Install network packages
+  yum: name={{ item }} state=present update_cache=yes
+  with_items:
+     - "nethogs"
+     - "iftop"
+     - "iperf"
+     - "iperf3"
+     - "whowatch"

@@ -1,0 +1,9 @@
+---
+
+- include_role:
+    name: epel
+
+- name: Install mysql_client packages
+  yum: name={{ item }} state=present update_cache=yes
+  with_items:
+     - "mysql57"
